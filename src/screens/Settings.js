@@ -1,12 +1,12 @@
 import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity } from 'react-native';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Feather from '@expo/vector-icons/Feather';
-import TaskBtn from './components/taskBtn'
-import {LeftHeader, RightHeader} from './components/headerBtn'
+import TaskBtn from '../taskBtn'
+import {LeftHeader, RightHeader} from '../headerBtn'
 
-export default function Home({navigation}) {
+export default function Settings({navigation}) {
   const [tasks, setTasks] = useState([
     { id: '1', title: 'Go to gym', type: 'daily', completed: false },
     { id: '2', title: 'Study React Native', type: 'todo', completed: false },
@@ -16,9 +16,8 @@ export default function Home({navigation}) {
   const [gold, setGold] = useState(100);
   const [xp, setXp] = useState(0);
   
-  useEffect(()=>{
-    navigation.setOptions({
-    title: 'Habits',
+  navigation.setOptions({
+    title: 'Settings',
     headerStyle: {
       backgroundColor: '#19171c',
     },
@@ -31,8 +30,6 @@ export default function Home({navigation}) {
       <LeftHeader />
     )
   })
-  }, [navigation])
-  
 
   return (
     <SafeAreaProvider>
